@@ -3,11 +3,14 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { AuthProvider } from "@/contexts/AuthContext";
+import { ProtectedRoute } from "@/components/ProtectedRoute";
 import Index from "./pages/Index.tsx";
 import Marketplace from "./pages/Marketplace.tsx";
 import FarmerDashboard from "./pages/FarmerDashboard.tsx";
 import BuyerDashboard from "./pages/BuyerDashboard.tsx";
 import ProductDetail from "./pages/ProductDetail.tsx";
+import Auth from "./pages/Auth.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -18,14 +21,31 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/marketplace" element={<Marketplace />} />
-          <Route path="/farmer-dashboard" element={<FarmerDashboard />} />
-          <Route path="/buyer-dashboard" element={<BuyerDashboard />} />
-          <Route path="/product/:id" element={<ProductDetail />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <AuthProvider>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/marketplace" element={<Marketplace />} />
+            <Route
+              path="/farmer-dashboard"
+              element={
+                <ProtectedRoute requiredRole="farmer">
+                  <FarmerDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/buyer-dashboard"
+              element={
+                <ProtectedRoute requiredRole="buyer">
+                  <BuyerDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
