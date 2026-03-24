@@ -36,10 +36,10 @@ export default function Index() {
             Agrolink connects small-scale farmers directly to buyers — no middlemen, fair prices, better income.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 px-2">
-            <Button size="lg" variant="secondary" asChild className="text-primary font-bold text-base shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200 border border-secondary-foreground/10">
+            <Button size="lg" asChild className="font-bold text-base shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200" style={{ backgroundColor: '#FFFFFF', color: '#1B4332', border: '2px solid #1B4332' }}>
               <Link to="/auth">🌾 List Your Produce <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
-            <Button size="lg" asChild className="bg-white text-primary font-bold text-base shadow-md hover:shadow-lg hover:scale-105 hover:bg-white/90 transition-all duration-200 border border-white/30">
+            <Button size="lg" asChild className="font-bold text-base shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200" style={{ backgroundColor: '#FFFFFF', color: '#1B4332', border: '2px solid #1B4332' }}>
               <Link to="/marketplace">🛒 Find Fresh Crops <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
           </div>
