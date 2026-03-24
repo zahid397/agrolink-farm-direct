@@ -35,12 +35,12 @@ export default function Index() {
           <p className="text-lg md:text-xl text-primary-foreground/85 max-w-2xl mx-auto mb-8">
             Agrolink connects small-scale farmers directly to buyers — no middlemen, fair prices, better income.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button size="lg" variant="secondary" asChild className="text-primary font-semibold">
-              <Link to="/farmer-dashboard">List Your Produce <ArrowRight className="ml-2 h-4 w-4" /></Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 px-2">
+            <Button size="lg" variant="secondary" asChild className="text-primary font-bold text-base shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200 border border-secondary-foreground/10">
+              <Link to="/auth">🌾 List Your Produce <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
-            <Button size="lg" variant="outline" asChild className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10">
-              <Link to="/marketplace">Find Fresh Crops <ArrowRight className="ml-2 h-4 w-4" /></Link>
+            <Button size="lg" asChild className="bg-white text-primary font-bold text-base shadow-md hover:shadow-lg hover:scale-105 hover:bg-white/90 transition-all duration-200 border border-white/30">
+              <Link to="/marketplace">🛒 Find Fresh Crops <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
