@@ -8,12 +8,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { products, Product } from "@/data/mockData";
-import { MapPin, Calendar, Star, Bookmark, ArrowLeft } from "lucide-react";
+import { MapPin, Calendar, Star, Bookmark, ArrowLeft, Package } from "lucide-react";
 
 export default function ProductDetail() {
   const { id } = useParams();
-  const product = products.find(p => p.id === id);
   const [contactProduct, setContactProduct] = useState<Product | null>(null);
+  const product = products.find(p => p.id === id);
 
   if (!product) {
     return (
@@ -41,12 +41,10 @@ export default function ProductDetail() {
         </Button>
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {/* Product Image */}
           <div className="bg-secondary rounded-xl flex items-center justify-center py-16">
             <span className="text-[8rem] leading-none">{product.emoji}</span>
           </div>
 
-          {/* Details */}
           <div>
             <div className="flex items-center gap-3 mb-3">
               <Badge>{product.category}</Badge>
@@ -69,7 +67,6 @@ export default function ProductDetail() {
 
             <p className="text-muted-foreground mb-6">{product.description}</p>
 
-            {/* Farmer Card */}
             <Card className="mb-6">
               <CardContent className="p-4 flex items-center gap-4">
                 <div className="text-4xl">👨‍🌾</div>
@@ -77,7 +74,7 @@ export default function ProductDetail() {
                   <p className="font-semibold">{product.farmer}</p>
                   <p className="text-sm text-muted-foreground">Member since {product.memberSince}</p>
                   <div className="flex items-center gap-2 text-sm">
-                    <Star className="h-3 w-3 text-yellow-500 fill-yellow-500" /> {product.rating} · {product.totalListings} listings
+                    <Star className="h-3 w-3 fill-current text-accent" /> {product.rating} · {product.totalListings} listings
                   </div>
                 </div>
               </CardContent>
@@ -90,7 +87,6 @@ export default function ProductDetail() {
           </div>
         </div>
 
-        {/* Related */}
         {related.length > 0 && (
           <div>
             <h2 className="text-2xl font-bold mb-6">Related Products</h2>
@@ -105,13 +101,5 @@ export default function ProductDetail() {
       <Footer />
       <ContactModal product={contactProduct} open={!!contactProduct} onClose={() => setContactProduct(null)} />
     </div>
-  );
-}
-
-function Package(props: any) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M16.5 9.4 7.55 4.24" /><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /><polyline points="3.29 7 12 12 20.71 7" /><line x1="12" x2="12" y1="22" y2="12" />
-    </svg>
   );
 }
