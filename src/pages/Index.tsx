@@ -206,11 +206,11 @@ export default function Index() {
       <section className="gradient-cta text-primary-foreground py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">Ready to Join the Movement?</h2>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-            <Button size="lg" variant="secondary" asChild className="text-primary font-semibold">
-              <Link to="/farmer-dashboard">🌾 Join as Farmer</Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6 px-2">
+            <Button size="lg" asChild className="font-bold text-base shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200" style={{ backgroundColor: '#FFFFFF', color: '#1B4332', border: '2px solid #1B4332' }}>
+              <Link to="/auth">🌾 Join as Farmer</Link>
             </Button>
-            <Button size="lg" variant="outline" asChild className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10">
+            <Button size="lg" asChild className="font-bold text-base shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200" style={{ backgroundColor: '#FFFFFF', color: '#1B4332', border: '2px solid #1B4332' }}>
               <Link to="/marketplace">🛒 Browse as Buyer</Link>
             </Button>
           </div>
